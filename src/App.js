@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-class App extends Component {
+import User from './components/userInfo.component'
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.checkUsername = this.checkUsername.bind(this);
     this.state = {
-      user: '',
+      user: {},
       error: ''
     }
   }
@@ -20,7 +21,7 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({
-        user: '',
+        user: {},
         error: err.response.data.message
       });
     })
@@ -30,7 +31,7 @@ class App extends Component {
     const name = this.state.user.name
     let userProfile;
     if (name) {
-      userProfile = <h1>Username Exists</h1>
+      userProfile = <User user={this.state.user} />
     } else if (error) {
       userProfile = <h1>Username Does Not Exist</h1>
     }
@@ -48,5 +49,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
