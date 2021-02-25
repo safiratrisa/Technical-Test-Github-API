@@ -1,6 +1,8 @@
 const initialState = {
     repos: [],
-    user: {},
+    user: {
+      name: ''
+    },
     error: ''
   }
   const reposReducer = (state = initialState, action) => {

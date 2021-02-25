@@ -35,7 +35,7 @@ class App extends Component {
             {
               this.props.getUser(this.input.value)
               this.setState({
-                display_data: false,
+                display_data: false
               });
             }
             }>Search</button>
