@@ -11,6 +11,6 @@ npm install
 ```
 3. Run the project
 ```
-  npm start
+npm start
 ```
 
