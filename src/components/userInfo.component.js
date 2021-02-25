@@ -16,8 +16,6 @@ export default class User extends Component {
 
     render() {
         let showrepo;
-        console.log('fhjshfksjdhfdskj')
-        console.log(this.props.display_data)
         if (this.state.nextURL && this.props.display_data) {
             showrepo = <UserData data={this.state.nextURL} />
         }
