@@ -45,15 +45,18 @@ export default class App extends Component {
       userProfile = <h1>Username Does Not Exist</h1>
     }
     return (
-      <div>
-        <div>
+      <div className="frame">
+        <div className="input">
           <input
             type="text"
             ref={inputUsername => (this.input = inputUsername)}
+            placeholder='Search Github Username...'
           />
-          <button onClick={this.checkUsername}>Check</button>
+          <button onClick={this.checkUsername}>Search</button>
         </div>
-        {userProfile}
+        <div className="content">
+          {userProfile}
+        </div>
       </div>
     );
   }

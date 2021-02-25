@@ -29,16 +29,17 @@ export default class User extends Component {
                 <div className="user-info">
                     <p>{this.props.user.name}</p>
                     <p>{this.props.user.location}</p>
-                    <p className='user-bio'>{this.props.user.bio}</p>
                 </div>
                 <div className="repo-info">
+                    <p>{this.props.user.public_repos} Repos</p>
                     <div className='get-repo'
                         onClick={() => this.getUserData(`${this.props.user.url}/repos`)} >
-                        <b>{this.props.user.public_repos}</b>
-                        <p>Repos</p>
+                        <p>View Repositories</p>
                     </div>
-                </div>   
-                {showrepo}
+                </div>
+                <div className="showrepo">
+                    {showrepo}
+                </div>
             </div>
         )
     }
