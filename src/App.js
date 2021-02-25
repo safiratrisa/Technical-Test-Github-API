@@ -7,7 +7,8 @@ export default class App extends Component {
     this.checkUsername = this.checkUsername.bind(this);
     this.state = {
       user: {},
-      error: ''
+      error: '',
+      display_data: false
     }
   }
   checkUsername = () => {
@@ -16,14 +17,22 @@ export default class App extends Component {
     .then(res => {
       this.setState({
         error: '',
-        user: res.data
+        user: res.data,
+        display_data: false
       });
     })
     .catch(err => {
       this.setState({
         user: {},
-        error: err.response.data.message
+        error: err.response.data.message,
+        display_data: false
       });
+    })
+  }
+  showRepos = (repos) => {
+    console.log(repos)
+    this.setState({
+      display_data: repos
     })
   }
   render() { 
@@ -31,18 +40,18 @@ export default class App extends Component {
     const name = this.state.user.name
     let userProfile;
     if (name) {
-      userProfile = <User user={this.state.user} />
+      userProfile = <User user={this.state.user} display_data={this.state.display_data} showRepos={this.showRepos}/>
     } else if (error) {
       userProfile = <h1>Username Does Not Exist</h1>
     }
     return (
       <div>
         <div>
-        <input
-          type="text"
-          ref={inputUsername => (this.input = inputUsername)}
-        />
-        <button onClick={this.checkUsername}>Check</button>
+          <input
+            type="text"
+            ref={inputUsername => (this.input = inputUsername)}
+          />
+          <button onClick={this.checkUsername}>Check</button>
         </div>
         {userProfile}
       </div>

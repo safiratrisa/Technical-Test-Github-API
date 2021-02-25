@@ -4,20 +4,21 @@ export default class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            nextURL: '',
-            display_data: false
+            nextURL: ''
         }
     }
     getUserData = (nextURL) => {
         this.setState({
-            nextURL: nextURL,
-            display_data: true
+            nextURL: nextURL
         })
+        this.props.showRepos(true)
     }
 
     render() {
         let showrepo;
-        if (this.state.nextURL && this.state.display_data) {
+        console.log('fhjshfksjdhfdskj')
+        console.log(this.props.display_data)
+        if (this.state.nextURL && this.props.display_data) {
             showrepo = <UserData data={this.state.nextURL} />
         }
         return (
