@@ -32,7 +32,7 @@ export default class User extends Component {
                     <p>{this.props.user.public_repos} Repos</p>
                     <div className='get-repo'
                         onClick={() => this.getUserData(`${this.props.user.url}/repos`)} >
-                        <p>View Repositories</p>
+                        <p>View Github Repositories</p>
                     </div>
                 </div>
                 <div className="showrepo">
